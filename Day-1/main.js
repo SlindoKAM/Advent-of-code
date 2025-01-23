@@ -17,11 +17,24 @@ function readtxtFile(filePath)
 //Putting the file path of the exactly data(data.txt)
 const input = readtxtFile('./data.txt');
 
-//Create two arrays that will hold the 
+//Create two arrays that will hold the each colomn
+ const firstColArr = [];
+ const secondColArr = [];
+
+ //A container to put the sum inside or where i will be summing up the data(Addind together)
+ let sum = 0;
+
 //divide the input array into two different arrays
+input.forEach(locVal => 
+{
+    //Splitting the two colomns by seeing a (' ') space. Then pushing the splitted values to the new arrays separately.
+    const locValIndex = locVal.split(' ');
+    firstColArr.push(locValIndex[0]);
+    secondColArr.push(locValIndex[1]);
+});
 
 
 
 
 //To show the output
-console.log(input);
+console.log(firstColArr);
