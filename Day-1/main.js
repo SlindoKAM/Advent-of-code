@@ -7,7 +7,7 @@ function readtxtFile(filePath)
     try
     {
         const data = fileSystem.readFileSync(filePath);
-        return data.toString();
+        return data.toString().split('\n');
     }catch (error)
     {
         console.error(`Got an error trying to read the file:${error.message}`);
@@ -15,7 +15,7 @@ function readtxtFile(filePath)
 }
 
 //Putting the file path of the exactly data(data.txt)
-const input = readtxtFile('./data.txt');
+const input = readtxtFile('./Day-1/data.txt');
 
 //Create two arrays that will hold the each colomn
  const firstColArr = [];
@@ -25,7 +25,7 @@ const input = readtxtFile('./data.txt');
  let sum = 0;
 
 //divide the input array into two different arrays
-input.forEach(locVal => 
+input.forEach((locVal) => 
 {
     //Splitting the two colomns by seeing a (' ') space. Then pushing the splitted values to the new arrays separately.
     const locValIndex = locVal.split(' ');
@@ -33,8 +33,15 @@ input.forEach(locVal =>
     secondColArr.push(locValIndex[1]);
 });
 
-
+//Sort each colomn by using the Quick Sort...
+//partition function like a DIVIDER FUNCTION
+function partition(arr, lowIndex, highIndex)
+{
+    //Choose the pivot
+    let pivot = arr[highIndex];
+}
 
 
 //To show the output
-console.log(firstColArr);
+// console.log(input);
+// console.log(firstColArr);
