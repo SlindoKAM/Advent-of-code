@@ -101,8 +101,8 @@ quickSort(secondColArr, lowIndex, shighIndex);
 function disArr(leftArr, rightArr)
 {
     let n = input.length -1;
-    leftArr = firstColArr;
-    rightArr = secondColArr;
+    // leftArr = firstColArr;
+    // rightArr = secondColArr;
 
     for(let i = 0; i <= n; i++)
     {
@@ -120,7 +120,44 @@ function disArr(leftArr, rightArr)
     return sum;
 }
 
-console.log(disArr(firstColArr, secondColArr));
+// console.log(disArr(firstColArr, secondColArr));
+
+/*
+Second part
+*/
+function similarity(leftArr, rightArr)
+{
+    //Inaitialize variables
+    let n = input.length - 1;
+    // leftArr =  firstColArr;
+    // rightArr = secondColArr;
+    let simSum = 0;
+
+    for(let i = 0; i <= n; i++)
+    {
+        let count = 0;
+
+        for(let j = 0; j <= n; j++)
+        {
+            // if(Number.parseInt(leftArr[i]) === Number.parseInt(rightArr[j]))
+            if(leftArr[i].trim() == rightArr[j].trim())
+            {
+                count++;
+                // console.log(count);
+            }
+        }
+
+        simSum += leftArr[i] * count
+        // for(let i = 0; i <= n; i++)
+        // {
+        //    simSum += leftArr[i] * count;
+        // }
+    }
+    
+    return simSum;
+}
+
+console.log(similarity(firstColArr, secondColArr));
 
 // //Looping through all the elements in the first array so that i can display them
 // for(let i = lowIndex; i <= fhighIndex; i++)
