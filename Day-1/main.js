@@ -21,14 +21,14 @@ const input = readtxtFile('./Day-1/data.txt');
  const firstColArr = [];
  const secondColArr = [];
 
- //A container to put the sum inside or where i will be summing up the data(Addind together)
- let sum = 0;
+//A container to put the sum inside or where i will be summing up the data(Addind together)
+let sum = 0;
 
 //divide the input array into two different arrays
 input.forEach((locVal) => 
 {
     //Splitting the two colomns by seeing a (' ') space. Then pushing the splitted values to the new arrays separately.
-    const locValIndex = locVal.split(' ');
+    const locValIndex = locVal.split('   ');
     firstColArr.push(locValIndex[0]);
     secondColArr.push(locValIndex[1]);
 });
@@ -88,6 +88,53 @@ function quickSort(arr, lowIndex, highIndex)
     }
 }
 
+//Assigning lowIndex and highIndex
+let lowIndex = 0;
+let fhighIndex = firstColArr.length - 1;
+let shighIndex = secondColArr.length - 1;
+
+//Calling the quick sort algorithm, applying it to the array.
+quickSort(firstColArr, lowIndex, fhighIndex);
+quickSort(secondColArr, lowIndex, shighIndex);
+
+//Calculate the distance between the two arrays(different between firstColArr - secondColArr)
+function disArr(leftArr, rightArr)
+{
+    let n = input.length -1;
+    leftArr = firstColArr;
+    rightArr = secondColArr;
+
+    for(let i = 0; i <= n; i++)
+    {
+        let diff = rightArr[i] - leftArr[i];
+
+        // if(diff < 0)
+        // {
+        //     diff = diff * - 1;
+        // }
+
+        //Does the same as the above if-statement.
+        sum += Math.abs(diff);
+    }
+
+    return sum;
+}
+
+console.log(disArr(firstColArr, secondColArr));
+
+// //Looping through all the elements in the first array so that i can display them
+// for(let i = lowIndex; i <= fhighIndex; i++)
+// {
+//     console.log(firstColArr[i] + " ");
+// }
+
+// //Looping through all the elements in the first array
+// for(let j = lowIndex; j <= shighIndex; j++)
+// {
+//     console.log(secondColArr[j] + " ");
+// }
+
 //To show the output
 // console.log(input);
-console.log(firstColArr);
+// console.log(firstColArr);
+// console.log(secondColArr);
